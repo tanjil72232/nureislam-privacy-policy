@@ -1,62 +1,185 @@
-<!doctype html>
-<html lang="bn">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
-    />
-    <script>
-      // Android WebView viewport guard. Some engines (seen on Pixel devices)
-      // ignore `width=device-width` and fall back to a 980px layout viewport,
-      // which centres the app in a narrow column with dead space on both
-      // sides. When that fallback is detected, rewrite the viewport to the
-      // concrete screen width in CSS pixels.
-      try {
-        var sw = window.screen && window.screen.width;
-        if (sw >= 300 && sw <= 800) {
-          var layoutW = document.documentElement.clientWidth;
-          if (layoutW > sw + 150) {
-            var meta = document.querySelector('meta[name="viewport"]');
-            if (meta) {
-              meta.setAttribute(
-                "content",
-                "width=" + sw + ", initial-scale=1.0, viewport-fit=cover"
-              );
-            }
-          }
-        }
-      } catch (e) {}
-    </script>
-    <meta name="theme-color" content="#0a1e1a" />
-    <link rel="preconnect" href="https://archive.org" />
-    <link rel="preconnect" href="https://jamiat.org.za" />
-    <link rel="preconnect" href="https://a2youth.com" />
-    <link rel="dns-prefetch" href="https://archive.org" />
-    <link rel="dns-prefetch" href="https://cdn.islamic.network" />
-    <meta name="description" content="Nur E Islam — Qur'an, prayer times, qibla and dhikr, in Bangla and English. No account needed." />
-    <title>Nur E Islam · নূর ই ইসলাম</title>
-    <script>
-      // Apply the saved theme before first paint so there's no flash of the wrong palette.
-      try {
-        var savedTheme = JSON.parse(localStorage.getItem("nei:theme"));
-        document.documentElement.setAttribute("data-theme", savedTheme === "light" ? "light" : "dark");
-      } catch (e) {
-        document.documentElement.setAttribute("data-theme", "dark");
-      }
-      // Apply the saved font scale (whole-app text size) before first paint.
-      try {
-        var fontSizes = { small: 14, medium: 16, large: 19 };
-        var savedFont = JSON.parse(localStorage.getItem("nei:fontScale"));
-        document.documentElement.style.fontSize = (fontSizes[savedFont] || 16) + "px";
-      } catch (e) {
-        document.documentElement.style.fontSize = "16px";
-      }
-    </script>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="./src/main.jsx"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nur E Islam — Privacy Policy</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans Bengali", sans-serif;
+      background: #f6f7f2;
+      color: #222;
+      line-height: 1.75;
+      padding: 0;
+    }
+    .top {
+      background: linear-gradient(135deg, #0f4c3a 0%, #14594a 60%, #1d6b52 100%);
+      color: #f5e9c3;
+      padding: 56px 24px 44px;
+      text-align: center;
+    }
+    .top h1 { font-size: 28px; font-weight: 800; letter-spacing: .5px; }
+    .top p { margin-top: 8px; font-size: 15px; opacity: .85; }
+    .gold { color: #e7c05f; }
+    .wrap { max-width: 760px; margin: -28px auto 0; padding: 0 20px 64px; }
+    .card {
+      background: #fff;
+      border: 1px solid #e4e2d6;
+      border-radius: 14px;
+      padding: 36px 32px;
+      box-shadow: 0 10px 30px rgba(20, 60, 45, .08);
+    }
+    h2 { font-size: 20px; color: #0f4c3a; margin: 28px 0 10px; }
+    h2:first-child { margin-top: 0; }
+    p { margin-bottom: 12px; font-size: 15.5px; }
+    ul { margin: 4px 0 16px 22px; }
+    li { margin-bottom: 8px; font-size: 15.5px; }
+    strong { color: #0f4c3a; }
+    .tag {
+      display: inline-block;
+      background: #eaf4ee;
+      color: #0f4c3a;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin: 2px 4px 2px 0;
+    }
+    .footer { text-align: center; color: #777; font-size: 13.5px; margin-top: 28px; }
+    .bn { border-top: 1px dashed #d8d6c8; margin-top: 40px; padding-top: 28px; }
+    .bn h2 { color: #0f4c3a; }
+    @media (max-width: 600px) {
+      .top h1 { font-size: 22px; }
+      .card { padding: 26px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top">
+    <h1>Nur E Islam <span class="gold">•</span> Privacy Policy</h1>
+    <p>Last updated: August 2026</p>
+  </div>
+
+  <div class="wrap">
+    <div class="card">
+
+      <h2>Introduction</h2>
+      <p>
+        Nur E Islam ("the app") is designed to be a complete Islamic companion:
+        Quran with Bengali translation, prayer times, Qibla direction, the 99 Names
+        of Allah, Tasbih, Duas, Hadith, nasheeds, and Islamic quizzes. Your privacy
+        matters to us, so this policy explains — in plain words — what the app
+        does and does not do with your information.
+      </p>
+
+      <h2>Data the app collects</h2>
+      <p>The short answer: <strong>nothing is sent anywhere.</strong> The app does not have accounts, does not use ads, and does not sell data.</p>
+      <ul>
+        <li><strong>Location:</strong> Used only on your device to calculate prayer times and the Qibla direction. It is <strong>never shared</strong> with us or any third party.</li>
+        <li><strong>Notifications &amp; alarms:</strong> Used only to remind you of prayer times. <span class="tag">SCHEDULE_EXACT_ALARM</span></li>
+        <li><strong>Battery optimization:</strong> Allowed so Quran audio and nasheeds keep playing in the background. <span class="tag">REQUEST_IGNORE_BATTERY_OPTIMIZATIONS</span></li>
+      </ul>
+
+      <h2>Data stored on your device</h2>
+      <p>
+        Everything you do stays on your phone — bookmarks, reading progress, tasbih
+        counts, game scores, and settings are stored locally on your device only.
+        No server stores any of it.
+      </p>
+
+      <h2>What we do NOT do</h2>
+      <ul>
+        <li>We do <strong>not</strong> collect, store, share, or sell any personal information.</li>
+        <li>We do <strong>not</strong> show ads or track you across other apps or websites.</li>
+        <li>We do <strong>not</strong> create accounts or profiles of you.</li>
+        <li>We do <strong>not</strong> send your data to any server or third party.</li>
+      </ul>
+
+      <h2>Children</h2>
+      <p>
+        The app is safe for children. It contains no ads and collects no personal
+        data from anyone, including children.
+      </p>
+
+      <h2>Your choices</h2>
+      <p>
+        You can clear the app's data or uninstall it at any time from your device's
+        settings, which permanently deletes everything stored locally by the app.
+      </p>
+
+      <h2>Changes to this policy</h2>
+      <p>
+        If this policy changes, the updated version will be published on this page
+        with a new "last updated" date.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        If you have any questions about this policy, please contact the developer
+        through the Google Play Store listing for Nur E Islam.
+      </p>
+
+      <!-- ============ Bangla version ============ -->
+      <div class="bn">
+        <h2>ভূমিকা</h2>
+        <p>
+          নূর-এ-ইসলাম ("অ্যাপ") একটি পূর্ণাঙ্গ ইসলামি সঙ্গী: কুরআন ও বাংলা অনুবাদ,
+          নামাজের সময়, কিবলার দিক, আল্লাহর ৯৯ নাম, তাসবিহ, দোয়া, হাদিস, নাশিদ ও
+          ইসলামিক কুইজ। আপনার গোপনীয়তা আমাদের কাছে গুরুত্বপূর্ণ — তাই এই নীতিমালায়
+          সহজ ভাষায় বলা হলো অ্যাপ আপনার তথ্য নিয়ে কী করে ও কী করে না।
+        </p>
+
+        <h2>অ্যাপ কী ডেটা সংগ্রহ করে</h2>
+        <p>সহজ উত্তর: <strong>কোথাও কিছু পাঠানো হয় না।</strong> অ্যাপে অ্যাকাউন্ট নেই, বিজ্ঞাপন নেই, তথ্য বিক্রি হয় না।</p>
+        <ul>
+          <li><strong>লোকেশন:</strong> শুধু আপনার ডিভাইসে নামাজের সময় ও কিবলার দিক হিসাব করতে ব্যবহৃত হয়। <strong>কখনো আমাদের বা কারো কাছে পাঠানো হয় না।</strong></li>
+          <li><strong>নোটিফিকেশন ও অ্যালার্ম:</strong> শুধু নামাজের সময় মনে করিয়ে দেওয়ার জন্য।</li>
+          <li><strong>ব্যাটারি অপটিমাইজেশন:</strong> ব্যাকগ্রাউন্ডে কুরআন ও নাশিদ চালিয়ে যাওয়ার জন্য অনুমতি।</li>
+        </ul>
+
+        <h2>ডিভাইসে সংরক্ষিত ডেটা</h2>
+        <p>
+          আপনার সব কার্যকলাপ ফোনেই থাকে — বুকমার্ক, পড়ার অগ্রগতি, তাসবিহের সংখ্যা,
+          গেমের স্কোর ও সেটিংস শুধু আপনার ডিভাইসে সংরক্ষিত। কোনো সার্ভারে কিছু যায় না।
+        </p>
+
+        <h2>যা আমরা করি না</h2>
+        <ul>
+          <li>কোনো ব্যক্তিগত তথ্য সংগ্রহ, সংরক্ষণ, ভাগ বা বিক্রি <strong>না</strong>।</li>
+          <li>বিজ্ঞাপন দেখাই <strong>না</strong> বা অন্য অ্যাপ/ওয়েবসাইটে আপনাকে ট্র্যাক করি <strong>না</strong>।</li>
+          <li>আপনার প্রোফাইল বা অ্যাকাউন্ট তৈরি করি <strong>না</strong>।</li>
+          <li>আপনার তথ্য কোনো সার্ভার বা তৃতীয় পক্ষে পাঠাই <strong>না</strong>।</li>
+        </ul>
+
+        <h2>শিশু</h2>
+        <p>
+          অ্যাপটি শিশুদের জন্য নিরাপদ। এতে বিজ্ঞাপন নেই এবং শিশুসহ কারো কোনো
+          ব্যক্তিগত তথ্য সংগ্রহ করা হয় না।
+        </p>
+
+        <h2>আপনার নিয়ন্ত্রণ</h2>
+        <p>
+          ডিভাইসের সেটিংস থেকে যেকোনো সময় অ্যাপের ডেটা মুছে ফেলতে বা অ্যাপ
+          আনইনস্টল করতে পারেন — এতে অ্যাপের স্থানীয় সব ডেটা স্থায়ীভাবে মুছে যায়।
+        </p>
+
+        <h2>নীতিমালার পরিবর্তন</h2>
+        <p>
+          এই নীতিমালা পরিবর্তিত হলে নতুন সংস্করণ এই পেজেই নতুন তারিখসহ প্রকাশ করা হবে।
+        </p>
+
+        <h2>যোগাযোগ</h2>
+        <p>
+          প্রশ্ন থাকলে Google Play Store-এ নূর-এ-ইসলাম পেজের মাধ্যমে বিকাশকারীর
+          সাথে যোগাযোগ করুন।
+        </p>
+      </div>
+
+      <div class="footer">© 2026 Nur E Islam</div>
+    </div>
+  </div>
+
+</body>
 </html>
