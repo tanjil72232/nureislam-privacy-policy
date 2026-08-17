@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="bn">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <script>
+      // Android WebView viewport guard. Some engines (seen on Pixel devices)
+      // ignore `width=device-width` and fall back to a 980px layout viewport,
+      // which centres the app in a narrow column with dead space on both
+      // sides. When that fallback is detected, rewrite the viewport to the
+      // concrete screen width in CSS pixels.
+      try {
+        var sw = window.screen && window.screen.width;
+        if (sw >= 300 && sw <= 800) {
+          var layoutW = document.documentElement.clientWidth;
+          if (layoutW > sw + 150) {
+            var meta = document.querySelector('meta[name="viewport"]');
+            if (meta) {
+              meta.setAttribute(
+                "content",
+                "width=" + sw + ", initial-scale=1.0, viewport-fit=cover"
+              );
+            }
+          }
+        }
+      } catch (e) {}
+    </script>
+    <meta name="theme-color" content="#0a1e1a" />
+    <link rel="preconnect" href="https://archive.org" />
+    <link rel="preconnect" href="https://jamiat.org.za" />
+    <link rel="preconnect" href="https://a2youth.com" />
+    <link rel="dns-prefetch" href="https://archive.org" />
+    <link rel="dns-prefetch" href="https://cdn.islamic.network" />
+    <meta name="description" content="Nur E Islam — Qur'an, prayer times, qibla and dhikr, in Bangla and English. No account needed." />
+    <title>Nur E Islam · নূর ই ইসলাম</title>
+    <script>
+      // Apply the saved theme before first paint so there's no flash of the wrong palette.
+      try {
+        var savedTheme = JSON.parse(localStorage.getItem("nei:theme"));
+        document.documentElement.setAttribute("data-theme", savedTheme === "light" ? "light" : "dark");
+      } catch (e) {
+        document.documentElement.setAttribute("data-theme", "dark");
+      }
+      // Apply the saved font scale (whole-app text size) before first paint.
+      try {
+        var fontSizes = { small: 14, medium: 16, large: 19 };
+        var savedFont = JSON.parse(localStorage.getItem("nei:fontScale"));
+        document.documentElement.style.fontSize = (fontSizes[savedFont] || 16) + "px";
+      } catch (e) {
+        document.documentElement.style.fontSize = "16px";
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="./src/main.jsx"></script>
+  </body>
+</html>
